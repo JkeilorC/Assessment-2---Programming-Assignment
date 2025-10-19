@@ -73,17 +73,17 @@ def create_precipitation_visualisation(weather_data, output_type='display'):
     # getting infromation about the precipitation, but accordinly to AI, our precipitation
     # is displayed hourly, so we have to make the following arrangement to group this
     # information per day
-    df["precipMM"] = df["hourly"].apply(
-        lambda x: pd.DataFrame(x)["precipMM"].astype(float).sum()
+    df["chance_of_rain"] = df["hourly"].apply(
+        lambda x: pd.DataFrame(x)["chanceofrain"].astype(float).max()
         if isinstance(x, list) else 0
     )
     # And now, we do the same we did for our create_temperature_visualisation function
     # for the visualisation arrangements
     fig, ax = plt.subplots(figsize=(5, 4))
-    ax.bar(df["date"], df["precipMM"], color="skyblue", label="Total Daily Precipitation (mm)")
-    ax.set_title("Daily Precipitation Forecast")
+    ax.bar(df["date"], df["chance_of_rain"], color="skyblue", label="Chance of rain%")
+    ax.set_title("Chance Precipitation Forecast")
     ax.set_xlabel("Date")
-    ax.set_ylabel("Total Precipitation (mm)")
+    ax.set_ylabel("Chance of rain %")
     ax.legend()
     ax.grid(True, linestyle='--', alpha=0.7, axis='y')
     plt.xticks(rotation=90)
