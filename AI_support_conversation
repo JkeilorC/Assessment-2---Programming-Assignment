@@ -1,5 +1,7 @@
-AI Conversation Assistance
-Here I record and summirise some of the assitance that I have received from AI.
+*AI Conversation Assistance and Reflection*
+
+Here I record and summirise some of the assitance that I have received from AI and at the bottom a small 
+reflection.
 
 CONVERSATION 1:
 QUESTION: Given the URL for the weather data, how is the information stored?
@@ -144,5 +146,14 @@ This was really helpful when I was designing the get_weather_data function as th
 was crashing when there was a error when I was placing ramdom text to test my code, 
 as the URL only works if location is well defined.
 
+*Reflection*
 
+Developing this assignment was challenging from the beginning, as my knowledge about programming
+was quite different to what I experienced before. Implementing different functions to be able to visualise 
+and get a response from a program made by me was quite enjoyable.
+I believe that by completing this assessment, I have become more capable of creating code in Python. 
+Also, with help of AI in some of the doubts I have while I was programming, I was able to manage different
+programming obstacles not in the hard way as it used to be (Stackoverflow), and I feel conformed with what 
+I created hoping to able to sort upcoming code challenges with the help of the knowledge acquired by 
+attending classes or developing this assessment.
 
