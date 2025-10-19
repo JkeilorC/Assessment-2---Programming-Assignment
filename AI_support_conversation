@@ -1,5 +1,5 @@
 AI Conversation Assistance
-Here I record some of the assitance that I have received from AI.
+Here I record and summirise some of the assitance that I have received from AI.
 
 CONVERSATION 1:
 QUESTION: Given the URL for the weather data, how is the information stored?
@@ -81,3 +81,68 @@ Cleaner output overall
   So " Tokyo \r\n" becomes "Tokyo".
 
 CONVERSATION 3:
+QUESTION: how is the best way to visualise probability infromation with matplotlib python?
+AI RESPONSE:
+That’s a great question — the best way to visualize probability information in Matplotlib depends on what type of 
+probability data you’re working with (discrete vs. continuous, single variable vs. joint distributions). Below are the most effective visualization techniques, with examples for each type
+1. Bar Chart (for discrete probabilities)
+If you have outcomes like dice rolls, survey responses, or categorical events with probabilities:
+2. Line Plot or Area Plot (for continuous distributions)
+To visualize a probability density function (PDF), you can plot a smooth line or shaded area.
+3. Histogram (for empirical probability / frequency data)
+If you have sample data and want to estimate probabilities
+4. Heatmap (for joint or conditional probabilities)
+If you have 2D probability data (e.g., P(X,Y))
+5. Cumulative Distribution Function (CDF)
+To visualize the probability that a variable ≤ a value
+
+COMMENT:
+After consirating all the options, I've decided to stay with Bar, as I'm working mostly
+whit the Pandas library, and some of the plot tools provided work with the Numpy library
+and I believe that Bar is more than enough for the present assignment.
+
+CONVERSATION 4:
+QUESTION: How and why should I turn my hourly information to Dataframe? 
+AI RESPONSE:
+You should turn your hourly information into a DataFrame because it allows you to handle
+structured data in a tabular and consistent way. Each hourly record from the API is originally 
+stored as a list of dictionaries, which is difficult to analyze directly because you would 
+need to manually loop through every entry to find or calculate values.
+By converting that list into a DataFrame, each key (such as "time", "tempC", "precipMM", or "chanceofrain") 
+becomes a column, and each hour becomes a row. This makes it possible to use powerful pandas 
+operations — for example, .astype(float) to convert text to numbers, .mean() or .max() to summarize data, and indexing or filtering to extract only what you need.
+Turning hourly data into a DataFrame also improves readability and scalability. 
+It keeps your data organized and makes your code easier to extend later (for instance, if you want to calculate averages, visualize trends, or compare multiple cities).
+In short:
+You turn your hourly information into a DataFrame so you can treat it like a 
+small table instead of a raw list, enabling easy mathematical operations, efficient summaries, and cleaner, more maintainable code.
+
+COMMENT:
+This answer was really helpul as I was struggling by coverting all the Hourly precipitation
+chance in a Data frame, this as I was trying to get that infromation to visualise and I need
+it to be in a float format.
+
+CONVERSATION 5:
+QUESTION: How can I handle API errors in case this does not get a 200 successful response?
+AI RESPONSE:
+When the API request is made using requests.get(),
+the program first checks the HTTP response code using:
+
+if response.status_code == 200:
+
+If the request is successful but the API returns an internal error (for example, when the city name doesn’t exist or the API key is invalid),
+the code checks for the "error" key in the JSON data:
+
+if "error" in weather_data["data"]:
+    print("Error:", weather_data["data"]["error"][0]["msg"])
+    return None
+This prevents the program from crashing and instead displays a user-friendly 
+message explaining what went wrong (like “No matching location found”).
+
+COMMENT:
+This was really helpful when I was designing the get_weather_data function as the program
+was crashing when there was a error when I was placing ramdom text to test my code, 
+as the URL only works if location is well defined.
+
+
+
