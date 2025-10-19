@@ -59,14 +59,14 @@ then the data becomes a Python dictionary that looks roughly like this:
 Comment: This conversation allowed me to see in which nests the required information was stored.
 
 CONVERSATION 2:
-QUESTION 2: Why I'm getting a "?" sign in the print section when I'm modeling the question for location?
+QUESTION 2: Why am I getting a "?" sign in the print section when I'm modelling the question for the location?
 AI RESPONSE:
-If the output still shows ? (for example The weather for Tokyo? is the following:), it’s almost certainly not your Python code, but an encoding or font issue in the terminal.
+If the output still shows? (for example, the weather in Tokyo? is the following:), It’s almost certainly not your Python code, but an encoding or font issue in the terminal.
 Let’s go step by step to confirm and fix it:
 In the weather chatbot case:
 The (You:) input is typed by a human → might include invisible or non-UTF8 characters (especially if pasted).
 Your print() and API URL both require plain text.
-The console encoding might not handle Unicode correctly — so non-ASCII symbols display as ?.
+The console encoding might not handle Unicode correctly, so non-ASCII symbols display as ?.
 By forcing your input to pure ASCII, you guarantee:
 No terminal weirdness (? replacements)
 Safe integration in URLs
@@ -83,52 +83,52 @@ Cleaner output overall
   So " Tokyo \r\n" becomes "Tokyo".
 
 CONVERSATION 3:
-QUESTION: how is the best way to visualise probability infromation with matplotlib python?
+QUESTION: How is the best way to visualise probability information with matplotlib Python?
 AI RESPONSE:
-That’s a great question — the best way to visualize probability information in Matplotlib depends on what type of 
-probability data you’re working with (discrete vs. continuous, single variable vs. joint distributions). Below are the most effective visualization techniques, with examples for each type
+That’s a great question — the best way to visualise probability information in Matplotlib depends on what type of 
+probability data you’re working with (discrete vs. continuous, single variable vs. joint distributions). Below are the most effective visualisation techniques, with examples for each type
 1. Bar Chart (for discrete probabilities)
 If you have outcomes like dice rolls, survey responses, or categorical events with probabilities:
 2. Line Plot or Area Plot (for continuous distributions)
-To visualize a probability density function (PDF), you can plot a smooth line or shaded area.
-3. Histogram (for empirical probability / frequency data)
+To visualise a probability density function (PDF), you can plot a smooth line or shaded area.
+3. Histogram (for empirical probability/frequency data)
 If you have sample data and want to estimate probabilities
 4. Heatmap (for joint or conditional probabilities)
 If you have 2D probability data (e.g., P(X,Y))
 5. Cumulative Distribution Function (CDF)
-To visualize the probability that a variable ≤ a value
+To visualise the probability that a variable ≤ a value
 
 COMMENT:
-After consirating all the options, I've decided to stay with Bar, as I'm working mostly
-whit the Pandas library, and some of the plot tools provided work with the Numpy library
-and I believe that Bar is more than enough for the present assignment.
+After considering all the options, I've decided to stay with Bar, as I'm working mostly
+with the Pandas library, and some of the plot tools provided work with the Numpy library
+And I believe that Bar is more than enough for the present assignment.
 
 CONVERSATION 4:
-QUESTION: How and why should I turn my hourly information to Dataframe? 
+QUESTION: How and why should I turn my hourly information into a Dataframe? 
 AI RESPONSE:
 You should turn your hourly information into a DataFrame because it allows you to handle
 structured data in a tabular and consistent way. Each hourly record from the API is originally 
-stored as a list of dictionaries, which is difficult to analyze directly because you would 
+stored as a list of dictionaries, which is difficult to analyse directly because you would 
 need to manually loop through every entry to find or calculate values.
 By converting that list into a DataFrame, each key (such as "time", "tempC", "precipMM", or "chanceofrain") 
 becomes a column, and each hour becomes a row. This makes it possible to use powerful pandas 
-operations — for example, .astype(float) to convert text to numbers, .mean() or .max() to summarize data, and indexing or filtering to extract only what you need.
+operations — for example, .astype(float) to convert text to numbers, .mean() or .max() to summarise data, and indexing or filtering to extract only what you need.
 Turning hourly data into a DataFrame also improves readability and scalability. 
-It keeps your data organized and makes your code easier to extend later (for instance, if you want to calculate averages, visualize trends, or compare multiple cities).
+It keeps your data organised and makes your code easier to extend later (for instance, if you want to calculate averages, visualise trends, or compare multiple cities).
 In short:
 You turn your hourly information into a DataFrame so you can treat it like a 
 small table instead of a raw list, enabling easy mathematical operations, efficient summaries, and cleaner, more maintainable code.
 
 COMMENT:
-This answer was really helpul as I was struggling by coverting all the Hourly precipitation
-chance in a Data frame, this as I was trying to get that infromation to visualise and I need
-it to be in a float format.
+This answer was really helpful as I was struggling by converting all the Hourly precipitation
+chance in a Data frame, this as I was trying to get that information to visualise, and I need
+It is to be in a float format.
 
 CONVERSATION 5:
 QUESTION: How can I handle API errors in case this does not get a 200 successful response?
 AI RESPONSE:
 When the API request is made using requests.get(),
-the program first checks the HTTP response code using:
+The program first checks the HTTP response code using:
 
 if response.status_code == 200:
 
@@ -142,18 +142,15 @@ This prevents the program from crashing and instead displays a user-friendly
 message explaining what went wrong (like “No matching location found”).
 
 COMMENT:
-This was really helpful when I was designing the get_weather_data function as the program
-was crashing when there was a error when I was placing ramdom text to test my code, 
-as the URL only works if location is well defined.
+This was really helpful when I was designing the get_weather_data function, as the program was crashing when there was an error when I was placing random text to test my code, as the URL only works if the location is well-defined.
 
 *Reflection*
 
 Developing this assignment was challenging from the beginning, as my knowledge about programming
 was quite different to what I experienced before. Implementing different functions to be able to visualise 
-and get a response from a program made by me was quite enjoyable.
+and get a response from a program I made was quite enjoyable.
 I believe that by completing this assessment, I have become more capable of creating code in Python. 
-Also, with help of AI in some of the doubts I have while I was programming, I was able to manage different
+Also, with the help of AI in some of the doubts I have while I was programming, I was able to manage different
 programming obstacles not in the hard way as it used to be (Stackoverflow), and I feel conformed with what 
-I created hoping to able to sort upcoming code challenges with the help of the knowledge acquired by 
+I created, hoping to be able to sort upcoming code challenges with the help of the knowledge acquired by 
 attending classes or developing this assessment.
-
